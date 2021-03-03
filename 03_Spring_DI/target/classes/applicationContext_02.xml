@@ -18,4 +18,30 @@
 		<constructor-arg value="100"/>
 	</bean>
 	
+	<!-- 생성자에 전달되는 인수(파라미터) 순서를 index 속성으로 변경(0부터 시작)
+	 	생성자에 전달되는 값 : sony, 200, 100 순서로 전달 -->
+	<bean id="tv2Samsung3" class="polymorhism02.SamsungTV">
+		<constructor-arg index="0" ref="sony"/>
+		<constructor-arg index="2" value="100"/>
+		<constructor-arg index="1" value="200"/>
+	</bean>
+	
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

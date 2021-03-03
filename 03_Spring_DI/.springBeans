@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/applicationContext_01.xml</config>
+		<config>src/main/resources/applicationContext_04.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
