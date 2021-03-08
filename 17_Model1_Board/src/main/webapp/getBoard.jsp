@@ -42,6 +42,7 @@
 	<hr>
 	
 	<form action="updateBoard_proc.jsp" method="post">
+		<input type="hidden" name="seq" value="<%=board.getSeq() %>">
 	<table>
 		<tr>
 			<th>제목</th>
@@ -69,7 +70,11 @@
 	</table>
 	</form>
 	
-	<p><a href="getBoardList.jsp">글 목록 가기</a></p>
+	<p>
+		<a href="insertBoard.jsp">등록</a>
+		<a href="deleteBoard_proc.jsp?seq=<%=board.getSeq() %>">삭제</a>
+		<a href="getBoardList.jsp">글 목록 가기</a>
+	</p>
 </div>
 
 </body>

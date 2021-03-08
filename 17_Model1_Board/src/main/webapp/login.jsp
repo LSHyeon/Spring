@@ -7,7 +7,7 @@
 <title>로그인</title>
 <style>
    #container {width: 700px; margin: 0 auto;}
-   h1 {text-align: center;}
+   h1,h3,td,p {text-align: center;}
    table {border-collapse: collapse;}
    table, th, td {
       border: 1px solid black;
