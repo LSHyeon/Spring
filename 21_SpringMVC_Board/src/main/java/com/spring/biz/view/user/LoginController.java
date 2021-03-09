@@ -3,14 +3,16 @@ package com.spring.biz.view.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
 import com.spring.biz.user.UserVO;
 import com.spring.biz.user.impl.UserDAO;
-import com.spring.biz.view.controller.Controller;
 
 public class LoginController implements Controller {
 	
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println(">> 로그인 처리");
 		//1. 사용자 입력  데이터 확인(추출)
 		String id = request.getParameter("id");
@@ -27,19 +29,17 @@ public class LoginController implements Controller {
 		//3. 화면 네비게이션(화면이동)
 		//로그인 성공 : 게시글 보여주기  - getBoardList.jsp
 		//로그인 실패 : 로그인화면으로 이동 - login.jsp
-		String returnStr = "";
+		ModelAndView mav = new ModelAndView(); // 데이터, 뷰명칭 저장 가능
 		
 		if (user != null) { // 사용자 정보가 있는 경우
 			System.out.println("> 로그인 성공");
-			// response.sendRedirect("getBoardList.do");
-			returnStr = "getBoardList.do";
+			mav.setViewName("getBoardList.do");
 		} else {
 			System.out.println("> 로그인 실패");
-			//response.sendRedirect("login.jsp");
-			returnStr = "login";
+			mav.setViewName("login.jsp"); // 뷰리졸버 사용 안함
 		}
 		
-		return returnStr;
+		return mav;
 	}
 
 }

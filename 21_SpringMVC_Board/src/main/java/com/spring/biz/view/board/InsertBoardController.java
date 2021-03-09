@@ -3,14 +3,16 @@ package com.spring.biz.view.board;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
 import com.spring.biz.board.BoardVO;
 import com.spring.biz.board.impl.BoardDAO;
-import com.spring.biz.view.controller.Controller;
 
 public class InsertBoardController implements Controller {
 
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println(">> 게시글 입력 처리");
 		//1. 전달받은 데이터 추출(확인)
 		String title = request.getParameter("title");
@@ -27,8 +29,10 @@ public class InsertBoardController implements Controller {
 		boardDAO.insertBoard(vo);
 		
 		//3. 화면 네이게이션(목록페이지로 이동)
-		//response.sendRedirect("getBoardList.do");
-		return "getBoardList.do";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("getBoardList.do");
+		
+		return mav;
 	}
 
 }
